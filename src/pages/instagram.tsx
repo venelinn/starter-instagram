@@ -11,7 +11,7 @@ import Heart from '../heart.svg'
 
 const Grid = styled(animated.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
   @media (max-width: ${props => props.theme.breakpoints[4]}) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -112,15 +112,13 @@ type Props = {
         }
       }[]
     }
-    fallback: ChildImageSharp
   }
 }
 //const Instagram: React.FunctionComponent<PageProps> = ({ data: { instagram, fallback } }) => {
 
 const Instagram: React.FunctionComponent<Props> = ({
   data: {
-    instagram: { edges: instagram },
-    fallback
+    instagram: { edges: instagram }
   },
 }) => {
   const pageAnimation = useSpring({
@@ -141,13 +139,13 @@ const Instagram: React.FunctionComponent<Props> = ({
 
   return (
     <Layout color="#3F4F67">
-      <SEO title="Instagram | Jodie" />
+      <SEO title="Instagram | Venelin" />
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)
           const post = instagram[index].node
           const title = post.caption ? post.caption.split('#')[0] : ''
-          const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+          const date = new Date(post.timestamp * 1000).toLocaleDateString('en-CA')
 
           return (
             post.localFile ?
