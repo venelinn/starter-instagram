@@ -28,6 +28,21 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-transformer-yaml',
     {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          location: {
+            state: { crumbClicked: false },
+            pathname: "/",
+          },
+          crumbLabel: "Home",
+          crumbSeparator: " / ",
+          crumbStyle: { color: "#666" },
+          crumbActiveStyle: { color: "orange" },
+        },
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',

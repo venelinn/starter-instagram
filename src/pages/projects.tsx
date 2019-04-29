@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import styled from 'styled-components'
 import { config, animated, useSpring } from 'react-spring'
 import Layout from '../components/layout'

@@ -215,7 +215,7 @@ interface QueryResult {
   }
 }
 
-const Layout = ({ children, color }: LayoutProps) => {
+const Layout = ({children, color }: LayoutProps) => {
   const data: QueryResult = useStaticQuery(query)
 
   return (

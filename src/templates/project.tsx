@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import Img from 'gatsby-image'
 import { transparentize, readableColor } from 'polished'
 import styled from 'styled-components'
@@ -86,7 +87,7 @@ type PageProps = {
   }
 }
 
-const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => {
+const Project: React.FunctionComponent<PageProps> = ({ location, data: { project, images } }) => {
   const categoryAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
@@ -113,6 +114,7 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         <Description style={descAnimation}>
           <div dangerouslySetInnerHTML={{ __html: project.desc }} />
         </Description>
+        <Breadcrumb location={location} crumbLabel={project.title_detail} />
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>

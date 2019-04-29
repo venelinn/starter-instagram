@@ -191,12 +191,5 @@ export const query = graphql`
         }
       }
     }
-    fallback: file(sourceInstanceName: { eq: "images" }, name: { eq: "instagram" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
   }
 `
